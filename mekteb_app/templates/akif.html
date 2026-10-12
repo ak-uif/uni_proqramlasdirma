@@ -1,51 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Akif - Məktəb Sistemi</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background-color: #f4f4f4; }
-    </style>
-</head>
-<body>
-    <h1>Məktəb İdarəetmə Sistemi (Akif)</h1>
-
-    <h2>Müəllimlər Cədvəli</h2>
-    <table>
-        <tr>
-            <th>Adı</th>
-            <th>Soyadı</th>
-            <th>Fənni</th>
-        </tr>
-        {% for m in muellimler %}
-        <tr>
-            <td>{{ m.ad }}</td>
-            <td>{{ m.soyad }}</td>
-            <td>{{ m.fenn }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
-    <h2>Tələbələr Cədvəli</h2>
-    <table>
-        <tr>
-            <th>Adı</th>
-            <th>Soyadı</th>
-            <th>Qrupu</th>
-            <th>Müəllimi</th>
-        </tr>
-
-        telebeler
-        {% for t in telebeler %}
-        <tr>
-            <td>{{ t.ad }}</td>
-            <td>{{ t.soyad }}</td>
-            <td>{{ t.qrup }}</td>
-            <td>{{ t.muellim.ad }} {{ t.muellim.soyad }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Akif · Məktəb sistemi{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Mövcud səhifə</span><h1>Məktəb idarəetmə sistemi (Akif)</h1><p>Müəllim və tələbə məlumatları bir səhifədə.</p></div></section>
+<section class="section"><div class="container"><h2>Müəllimlər cədvəli</h2><div class="table-shell"><table><caption>Müəllimlər</caption><thead><tr><th scope="col">Ad</th><th scope="col">Soyad</th><th scope="col">Fənn</th></tr></thead><tbody>{% for m in muellimler %}<tr><td>{{ m.ad }}</td><td>{{ m.soyad }}</td><td>{{ m.fenn }}</td></tr>{% empty %}<tr><td colspan="3" class="table-empty">Müəllim məlumatı yoxdur.</td></tr>{% endfor %}</tbody></table></div><h2 class="legacy-heading">Tələbələr cədvəli</h2><div class="table-shell"><table><caption>Tələbələr</caption><thead><tr><th scope="col">Ad</th><th scope="col">Soyad</th><th scope="col">Qrup</th><th scope="col">Müəllim</th></tr></thead><tbody>{% for t in telebeler %}<tr><td>{{ t.ad }}</td><td>{{ t.soyad }}</td><td>{{ t.qrup }}</td><td>{% if t.muellim %}{{ t.muellim }}{% else %}—{% endif %}</td></tr>{% empty %}<tr><td colspan="4" class="table-empty">Tələbə məlumatı yoxdur.</td></tr>{% endfor %}</tbody></table></div></div></section>
+{% endblock %}

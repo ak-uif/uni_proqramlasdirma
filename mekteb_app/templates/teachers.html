@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Müəllimlər{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Təhsil heyəti</span><h1>Müəllimlər</h1><p>Bilik və təcrübələrini tələbələrlə paylaşan müəllimlərimiz.</p></div></section>
+<section class="section"><div class="container"><div class="table-shell"><table><caption>Müəllimlər siyahısı</caption><thead><tr><th scope="col">Ad</th><th scope="col">Soyad</th><th scope="col">Fənn</th></tr></thead><tbody>{% for m in muellimler %}<tr><td>{{ m.ad }}</td><td>{{ m.soyad }}</td><td>{{ m.fenn }}</td></tr>{% empty %}<tr><td colspan="3" class="table-empty">Müəllim məlumatı hələ əlavə edilməyib.</td></tr>{% endfor %}</tbody></table></div></div></section>
+{% endblock %}

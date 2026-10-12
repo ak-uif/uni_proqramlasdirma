@@ -1,0 +1,8 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="footer-brand" href="{% url 'home' %}">Məktəb portalı</a><p>Təhsil icması üçün sadə və əlçatan məlumat məkanı.</p></div>
+    <nav aria-label="Alt naviqasiya"><span>Bölmələr</span><a href="{% url 'blog' %}">Bloq</a><a href="{% url 'about' %}">Haqqımızda</a><a href="{% url 'teachers' %}">Müəllimlər</a><a href="{% url 'students' %}">Tələbələr</a></nav>
+    <div class="footer-note"><span>Birlikdə öyrənirik</span><p>Yeni biliklərə açıq bir təhsil mühiti.</p></div>
+  </div>
+  <div class="container footer-bottom">© {% now 'Y' %} Məktəb portalı</div>
+</footer>

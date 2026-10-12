@@ -1,0 +1,14 @@
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="{% url 'home' %}" aria-label="Məktəb portalı — ana səhifə">
+      <span class="brand-mark" aria-hidden="true">M</span><span>Məktəb<span class="brand-light"> portalı</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Əsas naviqasiya">
+      <a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>Ana səhifə</a>
+      <a href="{% url 'blog' %}" {% if request.resolver_match.url_name == 'blog' or request.resolver_match.url_name == 'blog_detail' %}aria-current="page"{% endif %}>Bloq</a>
+      <a href="{% url 'about' %}" {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>Haqqımızda</a>
+      <a href="{% url 'teachers' %}" {% if request.resolver_match.url_name == 'teachers' %}aria-current="page"{% endif %}>Müəllimlər</a>
+      <a href="{% url 'students' %}" {% if request.resolver_match.url_name == 'students' %}aria-current="page"{% endif %}>Tələbələr</a>
+    </nav>
+  </div>
+</header>

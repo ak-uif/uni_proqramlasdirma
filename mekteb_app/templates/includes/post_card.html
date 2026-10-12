@@ -1,0 +1,11 @@
+<article class="post-card">
+  <a class="post-visual" href="{% url 'blog_detail' post.slug %}" aria-label="{{ post.title }} yazısını oxu">
+    {% if post.image %}<img src="{{ post.image.url }}" alt="{{ post.title }}" loading="lazy">{% else %}<span class="post-placeholder" aria-hidden="true"><span>MP</span></span>{% endif %}
+  </a>
+  <div class="post-body">
+    <time datetime="{{ post.created_at|date:'Y-m-d' }}">{{ post.created_at|date:'d.m.Y' }}</time>
+    <h3><a href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h3>
+    <p>{{ post.content|striptags|truncatewords:24 }}</p>
+    <a class="text-link" href="{% url 'blog_detail' post.slug %}">Daha ətraflı <span aria-hidden="true">→</span></a>
+  </div>
+</article>

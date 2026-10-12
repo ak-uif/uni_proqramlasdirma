@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<article class="article-wrap container"><a class="back-link" href="{% url 'blog' %}">← Bloqa qayıt</a><header class="article-header"><span class="eyebrow">Bloq yazısı</span><h1>{{ post.title }}</h1><time datetime="{{ post.created_at|date:'Y-m-d' }}">{{ post.created_at|date:'d.m.Y' }}</time></header>{% if post.image %}<img class="article-image" src="{{ post.image.url }}" alt="{{ post.title }}">{% endif %}<div class="article-content">{{ post.content|linebreaks }}</div><a class="button button-primary" href="{% url 'blog' %}">Bütün yazılar</a></article>
+{% endblock %}

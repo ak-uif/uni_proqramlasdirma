@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Bloq{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Yeniliklər</span><h1>Bloq</h1><p>Məktəb həyatından xəbərlər, fikirlər və faydalı yazılar.</p></div></section>
+<section class="section"><div class="container"><div class="cards-grid">{% for post in page_obj %}{% include 'includes/post_card.html' %}{% empty %}<div class="empty-state"><h2>Hələ yazı yoxdur</h2><p>Dərc olunan yazılar burada görünəcək.</p></div>{% endfor %}</div>
+{% if page_obj.paginator.num_pages > 1 %}<nav class="pagination" aria-label="Bloq səhifələri">{% if page_obj.has_previous %}<a href="?page={{ page_obj.previous_page_number }}" rel="prev">← Əvvəlki</a>{% endif %}<span>Səhifə {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>{% if page_obj.has_next %}<a href="?page={{ page_obj.next_page_number }}" rel="next">Növbəti →</a>{% endif %}</nav>{% endif %}</div></section>
+{% endblock %}

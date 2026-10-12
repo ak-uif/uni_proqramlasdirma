@@ -1,0 +1,18 @@
+{% load static %}
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d2851">
+  <title>{% block title %}Məktəb portalı{% endblock %} · Məktəb portalı</title>
+  <meta name="description" content="Məktəb icması, müəllimlər, tələbələr və ən son xəbərlər.">
+  <link rel="stylesheet" href="{% static 'mekteb_app/css/site.css' %}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Əsas məzmuna keç</a>
+  {% include 'includes/navbar.html' %}
+  <main id="main">{% block content %}{% endblock %}</main>
+  {% include 'includes/footer.html' %}
+</body>
+</html>
