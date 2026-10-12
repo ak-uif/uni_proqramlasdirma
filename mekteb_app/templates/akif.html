@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Akif - Məktəb Sistemi</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h1>Məktəb İdarəetmə Sistemi (Akif)</h1>
+
+    <h2>Müəllimlər Cədvəli</h2>
+    <table>
+        <tr>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Fənni</th>
+        </tr>
+        {% for m in muellimler %}
+        <tr>
+            <td>{{ m.ad }}</td>
+            <td>{{ m.soyad }}</td>
+            <td>{{ m.fenn }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Tələbələr Cədvəli</h2>
+    <table>
+        <tr>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Qrupu</th>
+            <th>Müəllimi</th>
+        </tr>
+
+        telebeler
+        {% for t in telebeler %}
+        <tr>
+            <td>{{ t.ad }}</td>
+            <td>{{ t.soyad }}</td>
+            <td>{{ t.qrup }}</td>
+            <td>{{ t.muellim.ad }} {{ t.muellim.soyad }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
